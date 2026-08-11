@@ -1,0 +1,42 @@
+:root {
+  --bg: #080b10;
+  --bg-soft: #0c1118;
+  --surface: #11161f;
+  --surface-raised: #161c28;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --hairline-strong: rgba(255, 255, 255, 0.11);
+
+  --text-1: #eef1f7;
+  --text-2: #9aa6b6;
+  --text-3: #616d80;
+
+  --red: #e8485a;
+  --red-soft: #d06a74;
+  --red-dim: rgba(232, 72, 90, 0.14);
+  --blue: #5b8cff;
+  --blue-soft: #7aa2ff;
+  --blue-dim: rgba(91, 140, 255, 0.14);
+  --slate: #6b7890;
+
+  --web-line: rgba(154, 178, 216, 0.09);
+  --web-line-core: rgba(154, 178, 216, 0.16);
+
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-xl: 22px;
+
+  --shadow-raised: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-float: 0 10px 28px rgba(0, 0, 0, 0.45);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--blue-soft);
+}
