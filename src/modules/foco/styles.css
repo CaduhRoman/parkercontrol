@@ -1,0 +1,662 @@
+.focus-screen {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 20px calc(100px + env(safe-area-inset-bottom));
+}
+
+.focus-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.focus-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.focus-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: focus-dot-pulse 3.2s ease-in-out infinite;
+}
+
+.focus-brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.focus-header-icon {
+  color: var(--text-3);
+  opacity: 0.5;
+}
+
+@keyframes focus-dot-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(91, 140, 255, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(91, 140, 255, 0.02);
+  }
+}
+
+.focus-main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.focus-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+/* ---------- Task Selector ---------- */
+
+.focus-task-selector {
+  position: relative;
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-m);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.focus-task-selector:hover:not(:disabled) {
+  background: var(--surface-raised);
+  border-color: var(--hairline-strong);
+}
+
+.focus-task-selector:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.focus-task-selector.has-task {
+  padding-right: 52px;
+}
+
+.focus-task-selector-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.focus-task-selector-accent {
+  flex: none;
+  width: 3px;
+  height: 28px;
+  border-radius: 2px;
+}
+
+.focus-task-selector-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.focus-task-selector-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-task-selector-meta {
+  font-size: 12.5px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-task-selector-placeholder {
+  font-size: 15.5px;
+  color: var(--text-3);
+}
+
+.focus-task-selector-chevron {
+  flex: none;
+  transition: transform var(--dur-base) var(--ease-out), color var(--dur-base);
+}
+
+.task-selector-chevron-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-selector-chevron.disabled {
+  color: var(--text-3);
+}
+
+/* ---------- Timer ---------- */
+
+.focus-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.timer-presets {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preset-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: var(--bg-soft);
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.preset-btn:hover:not(:disabled) {
+  border-color: var(--hairline-strong);
+  color: var(--text-1);
+}
+
+.preset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preset-btn.is-active {
+  background: var(--blue-dim);
+  border-color: var(--blue-soft);
+  color: var(--blue-soft);
+}
+
+.timer-circle-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.timer-circle-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-circle-bg {
+  stroke: var(--hairline);
+}
+
+.timer-circle-progress {
+  stroke: var(--blue);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(91, 140, 255, 0.4));
+}
+
+.timer-circle-center {
+  stroke: var(--hairline);
+  stroke-dasharray: 4 8;
+}
+
+.timer-display {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.timer-time {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 12vw, 68px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  line-height: 1;
+}
+
+.timer-of {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.timer-slash {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 500;
+  color: var(--text-3);
+  opacity: 0.5;
+}
+
+.timer-total {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.timer-completed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: timer-complete-in 0.4s var(--ease-out) both;
+}
+
+.timer-completed::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(91, 140, 255, 0.15), transparent 70%);
+  animation: timer-glow 2s ease-in-out infinite;
+}
+
+.timer-completed span {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--blue-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@keyframes timer-complete-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes timer-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* ---------- Timer Controls ---------- */
+
+.timer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.control-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.control-btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(91, 140, 255, 0.3);
+}
+
+.control-btn-primary:hover:not(:disabled) {
+  background: var(--blue-soft);
+  box-shadow: 0 6px 20px rgba(91, 140, 255, 0.4);
+}
+
+.control-btn-secondary {
+  background: var(--surface-raised);
+  color: var(--text-1);
+  border: 1px solid var(--hairline-strong);
+}
+
+.control-btn-secondary:hover:not(:disabled) {
+  background: var(--surface);
+  border-color: var(--blue-soft);
+}
+
+.control-btn-ghost {
+  background: transparent;
+  color: var(--text-2);
+}
+
+.control-btn-ghost:hover:not(:disabled) {
+  color: var(--red-soft);
+}
+
+/* ---------- Progress ---------- */
+
+.focus-progress-section {
+  padding: 4px 0 8px;
+}
+
+.focus-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.focus-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-soft));
+  transition: width 0.5s var(--ease-out);
+  box-shadow: 0 0 12px rgba(91, 140, 255, 0.4);
+}
+
+.focus-progress-label {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* ---------- History ---------- */
+
+.focus-history-section {
+  margin-top: 8px;
+}
+
+.focus-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.focus-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-s);
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.focus-history-item:hover {
+  background: var(--surface-raised);
+  border-color: var(--hairline-strong);
+}
+
+.focus-history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.focus-history-task {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-history-time {
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+.focus-history-meta {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.focus-history-duration {
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.focus-history-duration.completed {
+  color: var(--blue-soft);
+}
+
+/* ---------- Sheet ---------- */
+
+.focus-task-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.focus-task-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  gap: 8px;
+  color: var(--text-2);
+}
+
+.focus-task-empty-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.focus-task-empty-body {
+  font-size: 14px;
+  max-width: 36ch;
+}
+
+.focus-task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.focus-task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.focus-task-item:hover {
+  background: var(--surface);
+  border-color: var(--hairline-strong);
+}
+
+.focus-task-item.is-selected {
+  background: var(--blue-dim);
+  border-color: var(--blue-soft);
+}
+
+.focus-task-item:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-m);
+}
+
+.focus-task-accent {
+  flex: none;
+  width: 3px;
+  height: 24px;
+  border-radius: 2px;
+}
+
+.focus-task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.focus-task-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-task-meta {
+  font-size: 12.5px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-task-check {
+  flex: none;
+  color: var(--blue);
+}
+
+.focus-task-clear {
+  border-color: var(--hairline-strong);
+  background: var(--surface);
+}
+
+.focus-task-clear:hover {
+  background: var(--surface-raised);
+  border-color: var(--red-dim);
+}
+
+.focus-task-clear .focus-task-title {
+  color: var(--red-soft);
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 700px) {
+  .focus-screen {
+    max-width: 980px;
+  }
+
+  .timer-circle-wrap {
+    width: 320px;
+    height: 320px;
+  }
+
+  .timer-time {
+    font-size: 76px;
+  }
+
+  .timer-total {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 900px) {
+  .focus-main {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  .focus-task-section {
+    flex: 0 0 360px;
+    position: sticky;
+    top: 28px;
+  }
+
+  .focus-timer-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .focus-progress-section,
+  .focus-history-section {
+    width: 100%;
+  }
+}

@@ -26,10 +26,11 @@ const TABS: NavTabDef[] = [
 ];
 
 interface BottomNavProps {
-  active?: NavTabId;
+  active: NavTabId;
+  onChange: (tab: NavTabId) => void;
 }
 
-export function BottomNav({ active = 'spider-sense' }: BottomNavProps) {
+export function BottomNav({ active, onChange }: BottomNavProps) {
   return (
     <nav className="bottom-nav" aria-label="Navegação principal">
       {TABS.map((tab) => {
@@ -44,6 +45,7 @@ export function BottomNav({ active = 'spider-sense' }: BottomNavProps) {
             className={classes.join(' ')}
             aria-current={isActive ? 'page' : undefined}
             aria-label={tab.label}
+            onClick={() => !isActive && onChange(tab.id)}
           >
             {tab.center ? (
               <span className="nav-sphere" aria-hidden="true">

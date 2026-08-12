@@ -88,6 +88,40 @@ export function IconTrophy(p: IconProps) {
   );
 }
 
+export function IconPlay(p: IconProps) {
+  return (
+    <svg {...svgProps(p)}>
+      <path d="M5 3v18l14-9-14-9Z" />
+    </svg>
+  );
+}
+
+export function IconPause(p: IconProps) {
+  return (
+    <svg {...svgProps(p)}>
+      <rect x="6" y="4" width="4" height="16" rx="1" />
+      <rect x="14" y="4" width="4" height="16" rx="1" />
+    </svg>
+  );
+}
+
+export function IconStop(p: IconProps) {
+  return (
+    <svg {...svgProps(p)}>
+      <rect x="5" y="5" width="14" height="14" rx="2" />
+    </svg>
+  );
+}
+
+export function IconForward(p: IconProps) {
+  return (
+    <svg {...svgProps(p)}>
+      <path d="M5 18V6l12 6-12 6Z" />
+      <path d="M17 18V6l12 6-12 6Z" />
+    </svg>
+  );
+}
+
 export function IconSpiderMask({ size = 46 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
